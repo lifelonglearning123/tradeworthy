@@ -357,18 +357,26 @@
 <!-- Only if you pay for leads — the race -->
 <section id="platforms" class="race-section">
   <div class="wrap race-grid">
-    <div class="race pop" aria-label="Illustration: five firms bought the same lead; the first to get back wins it">
-      <div class="race-title">Five firms bought the same enquiry</div>
-      <div class="lane you"><span class="who">You, with Tradeworthy</span><span class="runner"></span><span class="flag">inside half an hour</span></div>
-      <div class="lane"><span class="who">Firm 2</span><span class="runner"></span></div>
-      <div class="lane"><span class="who">Firm 3</span><span class="runner"></span></div>
-      <div class="lane"><span class="who">Firm 4</span><span class="runner"></span></div>
-      <div class="lane"><span class="who">Firm 5</span><span class="runner"></span><span class="flag dim">next time they open their emails</span></div>
-    </div>
+    <figure class="race pop" aria-labelledby="race-cap">
+      <figcaption class="race-title" id="race-cap">Five firms bought the same enquiry</figcaption>
+      <div class="race-shot">
+        <picture>
+          <source srcset="/assets/img/race-phones.webp" type="image/webp">
+          <img src="/assets/img/race-phones.jpg" width="1400" height="737" loading="lazy" decoding="async"
+               alt="Five identical phones standing side by side. The first is lit up, showing the Tradeworthy app with a gold tick and the word REPLIED. The other four are dark, the enquiry still sitting on them unanswered.">
+        </picture>
+        <p class="race-pin"><b>You, with Tradeworthy</b><span>within 1 minute</span></p>
+      </div>
+      <ol class="race-when">
+        <li><span class="who">Firm 2</span><span class="when">next time they open their email</span></li>
+        <li><span class="who">Firm 3</span><span class="when">next day, once they're off the job they're on</span></li>
+        <li class="dim"><span class="who">Firms 4 and 5</span><span class="when">still sitting unanswered</span></li>
+      </ol>
+    </figure>
     <div class="pop" data-from="right">
       <p class="eyebrow">Only if you pay for leads</p>
       <h2 style="font-size:clamp(30px,3.6vw,48px)">The leads you already pay for, answered first.</h2>
-      <p class="lead">You pay for a lead that four other firms also bought. Whoever gets back first usually wins it — and you're on site. We're appointed on your lead platforms, so those enquiries come to us and get a response inside half an hour, instead of sitting there until you next open your emails.</p>
+      <p class="lead">You pay for a lead that four other firms also bought. Whoever gets back first usually wins it — and you're on site. We're appointed on your lead platforms, so those enquiries come to us and get a response within a minute, instead of sitting there until you next open your emails.</p>
     </div>
   </div>
 </section>

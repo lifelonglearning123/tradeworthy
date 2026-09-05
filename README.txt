@@ -44,7 +44,10 @@ Placeholders still to fill
 
 Go-live gates carried over from Outline (do not remove without a decision)
   Home §5 / Why §5  "One person who knows your business … reply the same working day" — named contact not staffed
-  Home §9           "Only if you pay for leads" — per-platform terms check outstanding; keeps "under 30 minutes"
+  Home §9           "Only if you pay for leads" — per-platform terms check STILL OUTSTANDING.
+                    The "under 30 minutes" wording was overridden to "within 1 minute" (chao, 6 Sep),
+                    in both the illustration pin and the paragraph. That is now the tighter of the two
+                    promises on the page — the terms check needs to clear it before go-live.
   Why §8            every competitor cell in the comparison table must be evidenced before it ships
   About §3          founder backgrounds must be real, not generic
   Present §7        the findability check still runs on gbp.artificialignorance.io — no link until rebranded
@@ -62,6 +65,16 @@ Home hero — the phone
   The card no longer animates. The p1-p4 phase loop still runs and still drives the TODAY
   card and the ringing tile, so site.js guards the three text nodes that used to live in the
   call card.
+
+Home §9 — the five-firms illustration
+  assets/img/race-phones.webp (served) and .jpg (fallback): a photoreal render of five phones
+  side by side, the first lit with the Tradeworthy "REPLIED" screen and the other four dark.
+  Generated with Higgsfield (Nano Banana Pro) from an HTML mock of the REPLIED screen, so the
+  only words baked into the image are TRADEWORTHY / REPLIED / "Customer has an answer".
+  Everything else — the title, the gold pin and the Firm 2/3/4/5 rows — is live HTML.
+  The pin is positioned at left:15.6%, which is where the lit phone sits in that image.
+  RE-CROP OR REGENERATE THE IMAGE AND YOU MUST RE-MEASURE THAT PERCENTAGE (see .race-pin).
+  The old animated lane/runner chart and its CSS are gone.
 
 Flow look — placeholders to replace before go-live
   assets/img/electrician.jpg, plumber.jpg, van.jpg, hands.jpg, workshop.jpg — AI-generated stand-ins; swap for real photos (same filenames).
