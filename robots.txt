@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tradeworthy.co.uk/sitemap.xml

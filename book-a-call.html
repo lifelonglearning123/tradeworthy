@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Book a call — Tradeworthy"><meta property="og:description" content="Book a twenty-minute call with Tradeworthy. Tell us your trade and how the phone gets answered today, and we&#x27;ll tell you straight whether it fits."><meta property="og:type" content="website">
+<meta name="theme-color" content="#1e1919">
+<title>Book a call — Tradeworthy</title>
+<meta name="description" content="Book a twenty-minute call with Tradeworthy. Tell us your trade and how the phone gets answered today, and we&#x27;ll tell you straight whether it fits.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+  <a class="logo" href="/" aria-label="Tradeworthy home"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#d4a62a"/><path d="M9 16.5l4.6 4.6L23 11.5" fill="none" stroke="#15140f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>TRADE<b>WORTHY</b></span></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <nav class="nav" id="nav" aria-label="Main"><a href="/">Connect</a><a href="/present">Present</a><a href="/boost">Boost</a><a href="/convert">Convert</a><a href="/can-we-help">Can we help?</a><a href="/why-tradeworthy">Why Tradeworthy</a><a href="/about">About</a><a class="btn btn-gold btn-sm" href="/book-a-call">Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></nav>
+</div></header>
+<main id="main">
+
+<!--
+  GOHIGHLEVEL SET-UP — two ways to wire this page, pick one:
+  A) Embed your HighLevel form: in HighLevel go to Sites → Forms → Builder, open the "Book a call" form, click
+     Integrate → Embed and copy the id from the iframe src (…/widget/form/XXXXXXXX). Paste it as ghlFormId below.
+     The native form on this page is then hidden and the HighLevel form shows in its place.
+  B) Keep this page's own form (matches the site design) and post it to a HighLevel Inbound Webhook:
+     Automation → Workflows → new workflow → trigger "Inbound Webhook" → copy the URL → paste as ghlWebhook below.
+     Map the JSON fields (name, business, trade, phone, email, area, team, best_time, notes) to contact fields in the workflow.
+  Leave both blank and the form shows a thank-you message without sending anywhere (preview only).
+-->
+<script>window.TW_CONFIG = { ghlFormId: '', ghlWebhook: '' };</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Book a call</p>
+    <h1>Twenty minutes. Straight answers. No hard sell.</h1>
+    <p class="lead">Tell us your trade and how the phone gets answered today. We'll tell you whether Tradeworthy fits, what it would look like for you, and what it costs — and if it isn't right, we'll say so.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="sticky">
+          <h2>What happens on the call</h2>
+          <ol class="steps light">
+            <li><div><h3>You tell us how work comes in</h3><p>Word of mouth, Google, trade platforms — and what happens when you can't pick up. Five minutes, no forms.</p></div></li>
+            <li><div><h3>We tell you what we'd do</h3><p>How calls would be answered in your business name, what the caller hears, and what lands with you afterwards.</p></div></li>
+            <li><div><h3>You decide, in your own time</h3><p>We'll send a written summary and a price. No chasing, no countdown.</p></div></li>
+          </ol>
+          <div class="notice mt-2"><strong>Prefer to talk?</strong> Call <a href="tel:+440000000000">[phone number]</a> or email <a href="mailto:hello@tradeworthy.co.uk">hello@tradeworthy.co.uk</a>.</div>
+        </div>
+      </div>
+      <div>
+        <div id="ghl-form" class="ghl-embed" hidden></div>
+        <form id="native-form" class="form card" hidden>
+          <div class="row2">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="f-business">Business name</label><input id="f-business" name="business" type="text" autocomplete="organization" required></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-trade">Your trade</label>
+              <select id="f-trade" name="trade" required>
+                <option value="">Choose…</option>
+                <option>Plumbing &amp; heating</option><option>Electrical</option><option>Roofing</option><option>Paving &amp; driveways</option><option>Landscaping &amp; gardens</option><option>Building &amp; extensions</option><option>Plastering &amp; rendering</option><option>Painting &amp; decorating</option><option>Joinery &amp; carpentry</option><option>Drainage</option><option>Fencing</option><option>Other trade</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-area">Where you work</label><input id="f-area" name="area" type="text" placeholder="Town or postcode area" autocomplete="postal-code"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-phone">Mobile</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field">
+            <label>How many of you are on the tools?</label>
+            <div class="chips" role="group" aria-label="Team size">
+              <label><input type="radio" name="team" value="Just me" required><span>Just me</span></label>
+              <label><input type="radio" name="team" value="2–3"><span>2–3</span></label>
+              <label><input type="radio" name="team" value="4–6"><span>4–6</span></label>
+              <label><input type="radio" name="team" value="7 or more"><span>7 or more</span></label>
+            </div>
+            <span class="hint">Count vans if that's easier.</span>
+          </div>
+          <div class="field">
+            <label>Best time to call you</label>
+            <div class="chips" role="group" aria-label="Best time to call">
+              <label><input type="checkbox" name="best_time" value="Early morning"><span>Before 8am</span></label>
+              <label><input type="checkbox" name="best_time" value="Lunchtime"><span>Lunchtime</span></label>
+              <label><input type="checkbox" name="best_time" value="Late afternoon"><span>After 4pm</span></label>
+              <label><input type="checkbox" name="best_time" value="Evening"><span>Evening</span></label>
+            </div>
+          </div>
+          <div class="field"><label for="f-notes">Anything we should know? <span class="hint">(optional)</span></label><textarea id="f-notes" name="notes" placeholder="How calls get answered now, what's not working, what you're after…"></textarea></div>
+          <p class="honey" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
+          <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>It's fine for Tradeworthy to call and email me about this. See the <a href="/privacy">privacy policy</a>.</span></label>
+          <button class="btn btn-gold btn-lg" type="submit" style="justify-content:center">Book my call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="small center">We'll confirm a time by text or email.</p>
+        </form>
+        <div id="form-ok" class="form-ok" hidden>
+          <h3>Thanks — we've got it.</h3>
+          <p>We'll confirm a time by text or email. If it's urgent, call <a href="tel:+440000000000">[phone number]</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="top">
+    <div>
+      <a class="logo" href="/" aria-label="Tradeworthy home"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#d4a62a"/><path d="M9 16.5l4.6 4.6L23 11.5" fill="none" stroke="#15140f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>TRADE<b>WORTHY</b></span></a>
+      <p>Answers every call for trades businesses too busy to answer every call, and too small to pay someone to sit and answer it.</p>
+    </div>
+    <div><h4>What we do</h4><ul>
+      <li><a href="/">Connect</a></li><li><a href="/present">Present</a></li><li><a href="/boost">Boost</a></li><li><a href="/convert">Convert</a></li>
+    </ul></div>
+    <div><h4>Company</h4><ul>
+      <li><a href="/can-we-help">Can we help?</a></li><li><a href="/why-tradeworthy">Why Tradeworthy</a></li><li><a href="/about">About</a></li><li><a href="/book-a-call">Book a call</a></li>
+    </ul></div>
+    <div><h4>Legal</h4><ul>
+      <li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li><li><a href="/cookies">Cookies</a></li>
+    </ul></div>
+  </div>
+  <div class="bottom">
+    <p>&copy; <span class="year">2026</span> Trade Worthy Ltd, company number 17376267. Registered office: 66 Paul Street, London EC2A 4NA.</p>
+    <p>Tradeworthy is a trading name of Trade Worthy Ltd.</p>
+  </div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
