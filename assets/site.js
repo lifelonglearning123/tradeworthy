@@ -4,6 +4,36 @@ function TWinit() {
   d.documentElement.classList.add('js');
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Theme. Light is the default — the dark theme is opt-in and remembered.
+     The <head> applies a stored choice before first paint; this only handles
+     the switch itself. */
+  var root = d.documentElement;
+  var theme = function () { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; };
+  var paint = function (mode) {
+    if (mode === 'dark') root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+    var meta = d.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', mode === 'dark' ? '#1e1919' : '#ffffff');
+    d.querySelectorAll('.theme-toggle').forEach(function (b) {
+      b.setAttribute('aria-checked', mode === 'dark' ? 'true' : 'false');
+      b.title = mode === 'dark' ? 'Switch to the light theme' : 'Switch to the dark theme';
+    });
+  };
+  paint(theme());
+  d.querySelectorAll('.theme-toggle').forEach(function (b) {
+    if (b.dataset.bound) return; b.dataset.bound = '1';
+    b.addEventListener('click', function () {
+      var next = theme() === 'dark' ? 'light' : 'dark';
+      /* Ease the colours across rather than snapping the whole page. */
+      if (!reduce) {
+        root.classList.add('theme-anim');
+        clearTimeout(w.__twTheme);
+        w.__twTheme = setTimeout(function () { root.classList.remove('theme-anim'); }, 380);
+      }
+      paint(next);
+      try { localStorage.setItem('tw-theme', next); } catch (e) {}
+    });
+  });
+
   /* Mobile nav */
   var burger = d.querySelector('.burger'), nav = d.querySelector('.nav');
   if (burger && nav && !burger.dataset.bound) {

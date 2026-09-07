@@ -25,6 +25,35 @@ Pages
   vercel.json           Clean URLs, asset caching, security headers — see DEPLOY.md
   DEPLOY.md             How to put it live on Vercel
 
+Light and dark themes
+  The site ships light and is dark on request. The toggle is the pill next to "Book a call"
+  in the header; the choice is kept in localStorage under "tw-theme" and re-applied by a
+  three-line inline script in each page's <head>, before the stylesheet, so a returning
+  visitor never sees a white flash. No choice stored = light. The OS "prefers-color-scheme"
+  setting is deliberately NOT followed — light is the default for everyone. If you ever want
+  it followed, read it in that inline script and in site.js's paint().
+
+  site.css opens with the whole palette and nothing else. Three scopes:
+    :root                      light theme — the default
+    :root[data-theme="dark"]   dark theme
+    .dark, .on-dark, .band, …  islands: dark in BOTH themes
+
+  Islands are how the page keeps its rhythm in light mode. A section marked .dark, the photo
+  bands, the app mockups (the dashboard, the phone screens, the hero windows) and the footer
+  re-declare the dark palette on themselves, so everything inside them resolves dark without
+  any per-element rules. .cta-band, .commit and the calculator result do the same trick for
+  gold. Because colour inherits as a computed value, an island also restates color:var(--ink)
+  — retinting the token alone would not reach text that never sets its own colour.
+
+  Rules for editing: no colour literals below the token block. Use --gold for fills and
+  --gold-text for gold that has to read as type (on white, plain --gold fails contrast).
+  Use --on-gold for text sitting on a gold fill and --on-dark-ink for text on photography or
+  a fixed dark fill. Translucent washes are rgba(var(--ink-rgb),a) — they flip with the
+  surface; scrims over photos are rgba(var(--photo-scrim),a) and stay dark.
+
+  Verified: every page renders identically to the pre-toggle dark build (computed styles
+  compared element by element), and no text in either theme falls below WCAG AA.
+
 Wiring the Book a call form to GoHighLevel
   Open book-a-call.html and find:   window.TW_CONFIG = { ghlFormId: '', ghlWebhook: '' };
   Option A — embed your HighLevel form: Sites → Forms → Builder → your form → Integrate → Embed.
